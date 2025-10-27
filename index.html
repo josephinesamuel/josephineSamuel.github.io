@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Josephine — Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container">
+      <div class="brand">Josephine</div>
+      <nav class="links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Hi, I am Josephine</h1>
+      <p>Product Manager who turns messy problems into simple products.</p>
+      <a class="btn" href="#projects">See my work</a>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Cartify</h3>
+          <p>Digital car buying experience for Indonesia.</p>
+          <a href="https://github.com/yourusername/cartify">View on GitHub</a>
+        </article>
+        <article class="card">
+          <h3>IELTS Writing Coach</h3>
+          <p>Prompts and feedback loops for daily practice.</p>
+          <a href="https://github.com/yourusername/ielts-coach">View on GitHub</a>
+        </article>
+        <article class="card">
+          <h3>KYC Onboarding Experiments</h3>
+          <p>Write ups, dashboards, and learnings.</p>
+          <a href="https://github.com/yourusername/kyc-onboarding">View on GitHub</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section alt">
+    <div class="container">
+      <h2>About</h2>
+      <p>Currently in Berlin. I like clear UX, strong data stories, and cars.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>
+        <a href="mailto:you@example.com">Email</a> ·
+        <a href="https://www.linkedin.com/in/yourname">LinkedIn</a> ·
+        <a href="https://github.com/yourusername">GitHub</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">© <span id="y"></span> Josephine</div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

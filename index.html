@@ -4,60 +4,139 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Josephine Samuel</title>
+  <meta name="description" content="Josephine Samuel — Master’s Student in Business Intelligence & Process Management. Former Product Manager at tech companies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://fav.farm/📘" />
 </head>
 
 <body>
-  <header>
-    <h1>Josephine Samuel</h1>
-    <h2>Master’s Student in Business Intelligence & Process Management · Former Product Manager at Tech Companies</h2>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#top">Josephine Samuel</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#origin">Where I'm from</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <p>
-      I’m currently pursuing my Master’s degree in Business Intelligence & Process Management at HWR Berlin, 
-      combining my background in product management and data with a passion for building structured, scalable solutions. 
-      Previously, I worked as a Product Manager at Flip and Traveloka, focusing on consumer experience and onboarding.
-    </p>
-  </section>
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <img class="hero-img" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2000&auto=format&fit=crop" alt="Bright collaborative workspace" />
+      <div class="wrap hero-inner">
+        <h1>Master’s Student in Business Intelligence & Process Management</h1>
+        <p class="lead">
+          Former Product Manager at tech companies. I enjoy turning complex problems into simple, scalable products.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#experience">See experience</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h3>Where I'm From</h3>
-    <p>
-      I was born in <strong>Semarang, Indonesia</strong> — a coastal city on the island of Java, known for its mix of Chinese, Dutch, and Javanese culture.  
-      In 2015, I moved to <strong>Jakarta</strong>, Indonesia’s bustling capital and the heart of its tech scene.  
-      Indonesia is globally known for <strong>Bali</strong>, its tropical islands, and its people’s warmth and hospitality — things that always remind me of home.
-    </p>
-  </section>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="wrap narrow">
+        <p>
+          I am pursuing my Master’s at HWR Berlin. Previously at Flip and Traveloka, I focused on consumer experience, onboarding, and growth.
+        </p>
+      </div>
+    </section>
 
-  <section>
-    <h3>Hobbies</h3>
-    <p>
-      Outside of work, I enjoy <strong>powerlifting</strong>, <strong>hiking</strong>, and <strong>cooking</strong>.  
-      Lately, I’ve surprisingly gotten into anime — even though I used to avoid it. My current watch: <em>Sakamoto Days</em>.
-    </p>
-  </section>
+    <!-- Where I'm from -->
+    <section id="origin" class="section alt">
+      <div class="wrap grid two">
+        <div>
+          <h2>Where I'm from</h2>
+          <p>
+            Born in <strong>Semarang, Indonesia</strong>, a port city on Java with a blend of Javanese, Chinese, and Dutch heritage. In 2015 I moved to <strong>Jakarta</strong>, the country’s bustling capital and tech hub.
+          </p>
+          <p>
+            Indonesia is known worldwide for <strong>Bali</strong>, its islands, and warm hospitality. Those things always feel like home.
+          </p>
+        </div>
+        <figure class="img-card">
+          <img src="https://images.unsplash.com/photo-1559116285-97dfc0e15539?q=80&w=1600&auto=format&fit=crop" alt="Coastline and temple in Indonesia" />
+          <figcaption>Indonesia</figcaption>
+        </figure>
+      </div>
+    </section>
 
-  <section>
-    <h3>Education</h3>
-    <ul>
-      <li><strong>Master of Science</strong> — Business Intelligence & Process Management, HWR Berlin (2025–present)</li>
-      <li><strong>Bachelor of Information Systems and Accounting</strong> — BINUS University, Jakarta (2017–2022)</li>
-    </ul>
-  </section>
+    <!-- Hobbies -->
+    <section id="hobbies" class="section">
+      <div class="wrap">
+        <h2>Hobbies</h2>
+        <div class="grid three">
+          <article class="img-card">
+            <img src="https://images.unsplash.com/photo-1546817372-8658fda21e2e?q=80&w=1200&auto=format&fit=crop" alt="Barbell in a gym" />
+            <h3>Powerlifting</h3>
+          </article>
+          <article class="img-card">
+            <img src="https://images.unsplash.com/photo-1508261303786-0e94a1d4a610?q=80&w=1200&auto=format&fit=crop" alt="Mountain hiking trail" />
+            <h3>Hiking</h3>
+          </article>
+          <article class="img-card">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1200&auto=format&fit=crop" alt="Cooking ingredients on a table" />
+            <h3>Cooking</h3>
+          </article>
+        </div>
+        <p class="note">Recently I got into anime after avoiding it for years. Current watch: <em>Sakamoto Days</em>.</p>
+      </div>
+    </section>
 
-  <section>
-    <h3>Professional Experience</h3>
-    <ul>
-      <li><strong>Product Manager</strong> — Flip, Indonesia (2024–2025)</li>
-      <li><strong>Associate Product Manager</strong> — Traveloka, Indonesia (2023–2024)</li>
-      <li><strong>Product Management & Growth Associate</strong> — PowerBuy, United States (2022–2023)</li>
-      <li><strong>Technology Consulting Intern</strong> — Accenture, Indonesia (2022)</li>
-    </ul>
-  </section>
+    <!-- Education -->
+    <section id="education" class="section alt">
+      <div class="wrap">
+        <h2>Education</h2>
+        <ul class="list">
+          <li><strong>Master of Science</strong> — Business Intelligence and Process Management, HWR Berlin. 2025 to present.</li>
+          <li><strong>Bachelor of Information Systems and Accounting</strong> — BINUS University, Jakarta. 2017 to 2022.</li>
+        </ul>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Josephine Samuel</p>
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="wrap">
+        <h2>Professional Experience</h2>
+        <ul class="list">
+          <li><strong>Product Manager</strong> — Flip, Indonesia. 2024 to 2025.</li>
+          <li><strong>Associate Product Manager</strong> — Traveloka, Indonesia. 2023 to 2024.</li>
+          <li><strong>Product Management and Growth Associate</strong> — PowerBuy, United States. 2022 to 2023.</li>
+          <li><strong>Technology Consulting Intern</strong> — Accenture, Indonesia. 2022.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="wrap narrow">
+        <h2>Contact</h2>
+        <p>
+          Email <a href="mailto:josephinesamuel8@gmail.com">josephinesamuel8@gmail.com</a> or connect on
+          <a href="https://www.linkedin.com/in/josephinesamuel/" target="_blank" rel="noopener">LinkedIn</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <small>Photos from Unsplash</small>
+      <span>© <span id="y"></span> Josephine Samuel</span>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

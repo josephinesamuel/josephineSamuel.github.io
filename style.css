@@ -56,7 +56,8 @@ body {
 .hero-inner {
   position: relative;
   margin-top: -220px;         /* overlay text on the image */
-  padding: 0 12px 28px;       /* align to container padding */
+  padding: 0 12px 48px;
+  text-align: center;      /* align to container padding */
 }
 .hero h1 {
   font-size: clamp(26px, 4.5vw, 42px);
@@ -82,7 +83,13 @@ body {
   letter-spacing: 0.4px;
   backdrop-filter: blur(2px);
 }
-.cta { display: flex; gap: 12px; margin-top: 14px; }
+.cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;    /* adds more space above buttons */
+  margin-bottom: 32px; /* adds clear space below the buttons */
+  justify-content: center; /* keeps them centered under title */
+}
 .btn {
   display: inline-block; padding: 10px 16px; border-radius: 10px;
   background: var(--accent); color: #fff; font-weight: 600;

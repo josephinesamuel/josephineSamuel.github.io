@@ -157,23 +157,13 @@
         </ul>
       </div>
     </section>
-<!-- Journey Map -->
+  
 <section id="journey" class="section">
   <div class="wrap">
-    <h2>From Indonesia to Berlin</h2>
-    <p class="journey-text">
-      My journey began in Indonesia and continues in Berlin, Germany, where I’m pursuing my Master’s degree.
-    </p>
-
-    <div class="map-frame">
-      <iframe
-        title="Route from Jakarta, Indonesia to Berlin, Germany"
-        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d15478054.558435453!2d81.8124336848301!3d-0.710095190692225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e4!4m3!3m2!1d-6.2087634!2d106.845599!4m3!3m2!1d52.5200066!2d13.404954!5e0!3m2!1sen!2sde!4v1730130000000!5m2!1sen!2sde"
-        width="100%" height="420" style="border:0"
-        loading="lazy" allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+    <details class="journey-card" open>
+      <summary>The Journey to Berlin</summary>
+      <div id="mapJourney"></div>
+    </details>
   </div>
 </section>
 
@@ -215,5 +205,89 @@
 
 
   </script>
+  <!-- Leaflet (map library) -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+    <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+  <script>
+  // --- Locations ---
+  const JAKARTA = [-6.2087634, 106.845599];  // Jakarta, Indonesia
+  const BERLIN  = [52.5200066, 13.404954];   // Berlin, Germany
+
+  // --- Init map ---
+  const map = L.map('mapJourney', {
+    zoomControl: true,
+    worldCopyJump: true
+  });
+
+  // CARTO Positron (light) tiles match the screenshot look
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    { attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>' }
+  ).addTo(map);
+
+  // Numbered markers (simple styled circle)
+  function numbered(latlng, n, label) {
+    const icon = L.divIcon({
+      className: 'num-pin',
+      html: `<div class="num">${n}</div>`,
+      iconSize: [26, 26],
+      iconAnchor: [13, 13]
+    });
+    const m = L.marker(latlng, { icon }).addTo(map);
+    if (label) m.bindPopup(label);
+    return m;
+  }
+
+  numbered(JAKARTA, 1, 'Jakarta, Indonesia');
+  numbered(BERLIN, 2, 'Berlin, Germany');
+
+  // --- Great-circle arc from Jakarta to Berlin (nice curve) ---
+  function greatCircle(from, to, steps = 128) {
+    const toRad = d => d * Math.PI / 180;
+    const toDeg = r => r * 180 / Math.PI;
+
+    const φ1 = toRad(from[0]), λ1 = toRad(from[1]);
+    const φ2 = toRad(to[0]),   λ2 = toRad(to[1]);
+
+    const Δφ = φ2 - φ1, Δλ = λ2 - λ1;
+    const a = Math.sin(Δφ/2)**2 + Math.cos(φ1)*Math.cos(φ2)*Math.sin(Δλ/2)**2;
+    const δ = 2 * Math.asin(Math.min(1, Math.sqrt(a))); // angular distance
+
+    const points = [];
+    for (let i = 0; i <= steps; i++) {
+      const f = i / steps;
+      const A = Math.sin((1 - f) * δ) / Math.sin(δ);
+      const B = Math.sin(f * δ) / Math.sin(δ);
+
+      const x = A * Math.cos(φ1) * Math.cos(λ1) + B * Math.cos(φ2) * Math.cos(λ2);
+      const y = A * Math.cos(φ1) * Math.sin(λ1) + B * Math.cos(φ2) * Math.sin(λ2);
+      const z = A * Math.sin(φ1) + B * Math.sin(φ2);
+
+      const φi = Math.atan2(z, Math.hypot(x, y));
+      const λi = Math.atan2(y, x);
+
+      points.push([toDeg(φi), toDeg(λi)]);
+    }
+    return points;
+  }
+
+  const arc = L.polyline(greatCircle(JAKARTA, BERLIN), {
+    color: '#2745C4',
+    weight: 3,
+    opacity: 0.9
+  }).addTo(map);
+
+  // Fit map to the full route
+  map.fitBounds(arc.getBounds(), { padding: [20, 20] });
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Base */
+/* Reset and base */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 img { max-width: 100%; height: auto; display: block; }
@@ -8,7 +8,7 @@ a { color: inherit; text-decoration: none; }
   --bg: #ffffff;
   --text: #1f2937;
   --muted: #5b687a;
-  --accent: #2563eb;      /* bright professional blue */
+  --accent: #2563eb;
   --panel: #f4f7fb;
   --border: #e5eaf1;
 }
@@ -20,7 +20,7 @@ body {
   line-height: 1.7;
 }
 
-/* Global container with light inner padding so content aligns nicely */
+/* Containers: consistent alignment */
 .wrap,
 .narrow {
   width: min(1040px, 92%);
@@ -54,8 +54,8 @@ body {
 }
 .hero-inner {
   position: relative;
-  margin-top: -220px;                 /* pull text over the image */
-  padding: 0 12px 28px;               /* align with .wrap padding */
+  margin-top: -220px;         /* overlay text on the image */
+  padding: 0 12px 28px;       /* align to container padding */
 }
 .hero h1 {
   font-size: clamp(26px, 4.5vw, 42px);
@@ -72,10 +72,7 @@ body {
   box-shadow: 0 8px 24px rgba(37,99,235,0.25);
 }
 .btn:hover { transform: translateY(-1px); }
-.btn.ghost {
-  background: transparent; color: var(--accent);
-  border: 1px solid var(--accent); box-shadow: none;
-}
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
 
 /* Sections */
 .section { padding: 56px 0; }
@@ -105,7 +102,7 @@ body {
 }
 .img-card img {
   object-fit: cover;
-  aspect-ratio: 16 / 10;             /* keeps cards even height */
+  aspect-ratio: 16 / 10;     /* even heights so rows align */
 }
 .img-card h3,
 .img-card figcaption {
@@ -114,11 +111,11 @@ body {
   font-weight: 600;
 }
 
-/* Lists: tidy bullets and left indent */
+/* Lists */
 .list { padding-left: 1.2rem; margin: 0; }
 .list li { margin: 0 0 .5rem 0; }
 
-/* Footnote */
+/* Notes */
 .note { margin-top: 10px; color: var(--muted); }
 
 /* Footer */
@@ -128,8 +125,5 @@ body {
   color: var(--muted);
 }
 .foot .wrap {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
 }

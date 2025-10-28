@@ -365,24 +365,45 @@ body {
   color: var(--text);
   margin: 0;
 }
-/* Journey map section */
-#journey {
-  background: var(--panel);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-#journey h2 { margin-bottom: 12px; }
-.journey-text {
-  max-width: 760px;
-  font-size: 1.05rem;
-  color: var(--muted);
-  margin-bottom: 24px;
-}
-.map-frame {
-  border-radius: 14px;
+
+/* Journey card: matches the screenshot (beige card, rounded, shadow) */
+.journey-card {
+  background: #fbf4ec;                /* warm beige */
+  border: 1px solid #e7d9c9;          /* soft border */
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  padding: 0;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
 }
-.map-frame iframe { transition: transform .25s ease; }
-.map-frame:hover iframe { transform: scale(1.01); }
+.journey-card > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: #1f2937;
+  user-select: none;
+}
+.journey-card[open] > summary { border-bottom: 1px solid #ecdccb; }
+.journey-card > summary::-webkit-details-marker { display: none; } /* hide default arrow */
+
+/* Map container inside the card */
+#mapJourney {
+  height: 480px;
+  margin: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Numbered circular markers */
+.num-pin .num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: #2b6be4;
+  color: #fff;
+  font: 600 13px/26px Inter, system-ui, sans-serif;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.25);
+  border: 2px solid #ffffff;
+}
+
 

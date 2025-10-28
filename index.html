@@ -43,62 +43,49 @@
       </div>
     </section>
 
-    <section id="origin" class="section alt">
+<section id="origin" class="section alt">
   <div class="wrap">
     <h2>Where I'm from</h2>
     <p>
       Born in <strong>Semarang, Indonesia</strong>, a port city on Java with a blend of Javanese, Chinese, and Dutch heritage.
-      In 2015 I moved to <strong>Jakarta</strong>, the country’s bustling capital and tech hub. Indonesia is known worldwide
-      for <strong>Bali</strong>, its islands, and warm hospitality.
+      In 2015 I moved to <strong>Jakarta</strong>, the country’s bustling capital and tech hub.
+      Indonesia is known worldwide for <strong>Bali</strong>, its islands, and warm hospitality.
     </p>
 
-    <div class="carousel" aria-label="Indonesia photos">
-      <button class="car-btn prev" aria-label="Previous slide">‹</button>
+    <div class="carousel-container">
+      <button class="scroll-btn left" aria-label="Previous">‹</button>
 
-      <div class="car-viewport">
-        <ul class="car-track">
-          <li class="car-slide current">
-            <figure class="img-card">
-              <img
-                src="https://images.unsplash.com/photo-1625967445189-d35d49a37501?auto=format&fit=crop&w=1600&q=75&fm=jpg"
-                alt="Old town area in Semarang, Indonesia"
-                loading="lazy" decoding="async" referrerpolicy="no-referrer" width="1600" height="1000" />
-              <figcaption>Old town in Semarang, Indonesia.</figcaption>
-            </figure>
-          </li>
+      <div class="carousel">
+        <figure class="img-card">
+          <img
+            src="https://images.unsplash.com/photo-1625967445189-d35d49a37501?auto=format&fit=crop&w=1600&q=75&fm=jpg"
+            alt="Old town area in Semarang, Indonesia"
+            referrerpolicy="no-referrer" />
+          <figcaption>Old town in Semarang, Indonesia.</figcaption>
+        </figure>
 
-          <li class="car-slide">
-            <figure class="img-card">
-              <img
-                src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=1600&q=75&fm=jpg"
-                alt="Bundaran HI, Jakarta skyline"
-                loading="lazy" decoding="async" referrerpolicy="no-referrer" width="1600" height="1000" />
-              <figcaption>Bundaran HI, Jakarta, Indonesia.</figcaption>
-            </figure>
-          </li>
+        <figure class="img-card">
+          <img
+            src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&w=1600&q=75&fm=jpg"
+            alt="Bundaran HI, Jakarta skyline"
+            referrerpolicy="no-referrer" />
+          <figcaption>Bundaran HI, Jakarta, Indonesia.</figcaption>
+        </figure>
 
-          <li class="car-slide">
-            <figure class="img-card">
-              <img
-                src="https://images.unsplash.com/photo-1560103104-4623c14a473b?auto=format&fit=crop&w=1600&q=75&fm=jpg"
-                alt="Diamond Beach, Nusa Penida, Bali"
-                loading="lazy" decoding="async" referrerpolicy="no-referrer" width="1600" height="1000" />
-              <figcaption>Diamond Beach, Nusa Penida — Bali, Indonesia.</figcaption>
-            </figure>
-          </li>
-        </ul>
+        <figure class="img-card">
+          <img
+            src="https://images.unsplash.com/photo-1560103104-4623c14a473b?auto=format&fit=crop&w=1600&q=75&fm=jpg"
+            alt="Diamond Beach, Nusa Penida, Bali"
+            referrerpolicy="no-referrer" />
+          <figcaption>Diamond Beach, Nusa Penida — Bali, Indonesia.</figcaption>
+        </figure>
       </div>
 
-      <button class="car-btn next" aria-label="Next slide">›</button>
-
-      <div class="car-dots" role="tablist" aria-label="Choose slide">
-        <button class="dot current" aria-label="Slide 1"></button>
-        <button class="dot" aria-label="Slide 2"></button>
-        <button class="dot" aria-label="Slide 3"></button>
-      </div>
+      <button class="scroll-btn right" aria-label="Next">›</button>
     </div>
   </div>
 </section>
+
 
     <!-- Hobbies -->
     <section id="hobbies" class="section">
@@ -183,60 +170,20 @@
   </footer>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  (function () {
-    const track = document.querySelector('.car-track');
-    if (!track) return;
+  document.getElementById("y").textContent = new Date().getFullYear();
+  const carousel = document.querySelector(".carousel");
+  const leftBtn = document.querySelector(".scroll-btn.left");
+  const rightBtn = document.querySelector(".scroll-btn.right");
 
-    const slides = Array.from(track.children);
-    const prevBtn = document.querySelector('.car-btn.prev');
-    const nextBtn = document.querySelector('.car-btn.next');
-    const dotsNav = document.querySelector('.car-dots');
-    const dots = Array.from(dotsNav.children);
-
-    let index = 0;
-
-    function setPosition() {
-      const width = track.getBoundingClientRect().width;
-      track.style.transform = 'translateX(' + (-index * width) + 'px)';
-    }
-
-    function goTo(i) {
-      index = (i + slides.length) % slides.length;
-      slides.forEach((s, k) => s.classList.toggle('current', k === index));
-      dots.forEach((d, k) => d.classList.toggle('current', k === index));
-      setPosition();
-    }
-
-    nextBtn.addEventListener('click', () => goTo(index + 1));
-    prevBtn.addEventListener('click', () => goTo(index - 1));
-    dots.forEach((d, k) => d.addEventListener('click', () => goTo(k)));
-
-    // Keyboard support
-    track.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') goTo(index + 1);
-      if (e.key === 'ArrowLeft') goTo(index - 1);
+  if (carousel && leftBtn && rightBtn) {
+    leftBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -350, behavior: "smooth" });
     });
+    rightBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: 350, behavior: "smooth" });
+    });
+  }
 
-    // Touch swipe
-    let startX = null;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchmove', e => {
-      if (startX === null) return;
-      const dx = e.touches[0].clientX - startX;
-      if (Math.abs(dx) > 60) {
-        goTo(index + (dx < 0 ? 1 : -1));
-        startX = null;
-      }
-    }, { passive: true });
-    track.addEventListener('touchend', () => { startX = null; });
-
-    // Resize handling
-    window.addEventListener('resize', setPosition);
-
-    // Init
-    setPosition();
-  })();
 
   </script>
 </body>

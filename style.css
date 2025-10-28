@@ -371,26 +371,18 @@ body {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-
-#journey h2 {
-  margin-bottom: 12px;
-}
-
+#journey h2 { margin-bottom: 12px; }
 .journey-text {
   max-width: 760px;
   font-size: 1.05rem;
   color: var(--muted);
   margin-bottom: 24px;
 }
-
 .map-frame {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
 }
-.map-frame iframe {
-  transition: transform 0.3s ease;
-}
-.map-frame:hover iframe {
-  transform: scale(1.02);
-}
+.map-frame iframe { transition: transform .25s ease; }
+.map-frame:hover iframe { transform: scale(1.01); }
+

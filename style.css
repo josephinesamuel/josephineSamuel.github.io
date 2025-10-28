@@ -344,3 +344,21 @@ body {
   text-align: center;
 }
 
+/* Contact section alignment */
+#contact .wrap,
+#contact .narrow {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+#contact h2 {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+#contact p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+}
